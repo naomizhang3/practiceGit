@@ -87,7 +87,7 @@ public class CalendarModelImpl implements CalendarModel {
               "event.");
     }
 
-    switch (eventType) {
+    switch (eventType.toLowerCase()) {
       case "event":
         Event baseEvent = filtered.get(0);
         this.events.remove(filtered.get(0));

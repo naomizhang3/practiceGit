@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Scanner;
 import model.CalendarModel;
 import view.CalendarView;
@@ -29,7 +30,7 @@ public class EditEventCmd extends MultiWordEventCommand {
     String newProperty = null;
 
     while (scan.hasNext()) {
-      String key = scan.next();
+      String key = scan.next().toLowerCase();
       String value;
 
       if (key.equals("with")) {

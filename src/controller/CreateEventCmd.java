@@ -24,7 +24,7 @@ public class CreateEventCmd extends MultiWordEventCommand {
     Map<String, String> properties = new HashMap<>();
 
     while (scan.hasNext()) {
-      String key = scan.next();
+      String key = scan.next().toLowerCase();
       String value;
 
       if (!scan.hasNext() && !key.equals("times")) {
