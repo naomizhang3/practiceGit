@@ -10,7 +10,10 @@ import model.CalendarModel;
  */
 public class MockCalendar implements CalendarModel {
   final StringBuilder log;
-
+  /**
+   * Constructs a mock calendar with the given StringBuilder as the log.
+   * @param log the string builder to build on
+   */
   public MockCalendar(StringBuilder log) {
     this.log = log;
   }
