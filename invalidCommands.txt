@@ -1,0 +1,4 @@
+create event firstEvent from 2012-04-03T12:00 to 2012-04-05T12:00
+menu
+make salad wowSalad on 2025-06-05
+quit
