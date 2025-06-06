@@ -1,4 +1,5 @@
 create event firstEvent from 2012-04-03T12:00 to 2012-04-05T12:00
+CREATE event kfjdk on 2021-01-01
 menu
 make salad wowSalad on 2025-06-05
 quit
