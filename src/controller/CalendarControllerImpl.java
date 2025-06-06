@@ -19,7 +19,7 @@ public class CalendarControllerImpl implements CalendarController {
    * and text-based input stream.
    *
    * @param model The CalendarModel that will handle logical processing and storing of this
-   *              calendar.
+   *              calendar.Make changes here
    * @param input The readable input stream from which text commands are passed to the calendar.
    * @param view  The CalendarView that will display output from this calendar.
    */
@@ -40,10 +40,10 @@ public class CalendarControllerImpl implements CalendarController {
   public void control() {
     Scanner scan = new Scanner(input);
     boolean quit = false;
-
+    boolean continue =true;
     view.welcome();
 
-    while (!quit && scan.hasNext()) {
+    while (!quit && scan.hasNext() && continue ){
 
       String nextToken = scan.next();
       switch (nextToken) {
@@ -55,7 +55,7 @@ public class CalendarControllerImpl implements CalendarController {
           view.showMenu();
           break;
         default:
-          this.processCommand(nextToken, scan);
+          continue =this.processCommand(nextToken, scan);
       }
     }
     if (!quit) {
@@ -89,8 +89,10 @@ public class CalendarControllerImpl implements CalendarController {
         cmd = new ShowCmd();
         break;
       default: // program crashs if no correct command is provided
-        throw new IllegalArgumentException("Unrecognized command \"" + firstToken +
-                "\" was found. " + "Please input a valid command to the calendar.");
+        view.write("Please try again:");
+        return false;
+//        throw new IllegalArgumentException("Unrecognized command \"" + firstToken +
+//                "\" was found. " + "Please input a valid command to the calendar.");
     }
 
     try {
