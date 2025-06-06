@@ -40,7 +40,6 @@ public class CalendarControllerImpl implements CalendarController {
   public void control() {
     Scanner scan = new Scanner(input);
     boolean quit = false;
-    boolean continue =true;
     view.welcome();
 
     while (!quit && scan.hasNext()) {
@@ -54,7 +53,7 @@ public class CalendarControllerImpl implements CalendarController {
           view.showMenu();
           break;
         default:
-          continue =this.processCommand(nextToken, scan);
+          this.processCommand(nextToken, scan);
       }
     }
     if (!quit) {
@@ -75,8 +74,6 @@ public class CalendarControllerImpl implements CalendarController {
    */
   private void processCommand(String firstToken, Scanner scan) {
     CalendarCommand cmd;
-
-
 
     switch (firstToken.toLowerCase()) {
       case "create":
