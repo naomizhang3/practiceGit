@@ -22,6 +22,12 @@ public class MockCalendar implements CalendarModel {
     }
   }
 
+  public void TEST(Map<String, String> properties) {
+    for (Map.Entry<String, String> entry : properties.entrySet()) {
+      log.append(entry.getKey()).append(": ").append(entry.getValue()).append("\n");
+    }
+  }
+
   @Override
   public void editEvent(String eventType, String property, Map<String, String> identifier,
                         String newPropertyValue) {
