@@ -75,7 +75,7 @@ public class CalendarControllerImpl implements CalendarController {
   private void processCommand(String firstToken, Scanner scan) {
     CalendarCommand cmd;
 
-    switch (firstToken) {
+    switch (firstToken.toLowerCase()) {
       case "create":
         cmd = new CreateEventCmd();
         break;
@@ -88,7 +88,7 @@ public class CalendarControllerImpl implements CalendarController {
       case "show":
         cmd = new ShowCmd();
         break;
-      default:
+      default: // program crashs if no correct command is provided
         throw new IllegalArgumentException("Unrecognized command \"" + firstToken +
                 "\" was found. " + "Please input a valid command to the calendar.");
     }
