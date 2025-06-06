@@ -21,7 +21,7 @@ public class ShowCmd implements CalendarCommand {
   public void execute(CalendarModel model, String restOfCommand, CalendarView view) {
     Scanner scan = new Scanner(restOfCommand);
     try {
-      if (scan.next().equals("status") && scan.next().equals("on")) {
+      if (scan.next().equalsIgnoreCase("status") && scan.next().equalsIgnoreCase("on")) {
         view.write(model.getStatus(scan.next()) + System.lineSeparator());
       }
     } catch (Exception e) {

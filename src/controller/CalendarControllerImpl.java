@@ -44,7 +44,6 @@ public class CalendarControllerImpl implements CalendarController {
     view.welcome();
 
     while (!quit && scan.hasNext()) {
-
       String nextToken = scan.next();
       switch (nextToken) {
         case "q":
@@ -61,6 +60,7 @@ public class CalendarControllerImpl implements CalendarController {
     if (!quit) {
       view.write("Did not provide an exit command.");
     }
+
   }
 
   /**
@@ -71,11 +71,11 @@ public class CalendarControllerImpl implements CalendarController {
    * @param firstToken The first keyword of the arguments, which specifies the type of the
    *                   command.
    * @param scan       The rest of the arguments in this command.
+   *
    */
   private void processCommand(String firstToken, Scanner scan) {
     CalendarCommand cmd;
-
-    switch (firstToken) {
+    switch (firstToken.toLowerCase()) {
       case "create":
         cmd = new CreateEventCmd();
         break;
@@ -89,6 +89,7 @@ public class CalendarControllerImpl implements CalendarController {
         cmd = new ShowCmd();
         break;
       default:
+        view.write("Invalid command given: " + firstToken + " " + System.lineSeparator());
         throw new IllegalArgumentException("Unrecognized command \"" + firstToken +
                 "\" was found. " + "Please input a valid command to the calendar.");
     }

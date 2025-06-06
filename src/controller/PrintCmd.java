@@ -21,12 +21,12 @@ public class PrintCmd implements CalendarCommand {
    */
   public void execute(CalendarModel model, String restOfCommand, CalendarView view) {
     Scanner scan = new Scanner(restOfCommand);
-    if (!scan.next().equals("events")) {
+    if (!scan.next().equalsIgnoreCase("events")) {
       throw new IllegalArgumentException("Print commands must begin with the phrase 'print "
               + "events'.");
     }
 
-    switch (scan.next()) {
+    switch (scan.next().toLowerCase()) {
       case "on":
         view.formatSchedule(model.getSchedule(scan.next()));
         return;
